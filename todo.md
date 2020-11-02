@@ -1,4 +1,4 @@
-# Plan of Action
+### To-do's:
 
 - Initialize NodeJs Project
 - Initialize frontend view
