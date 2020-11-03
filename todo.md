@@ -2,8 +2,9 @@
 
 - Express
 - UUID
+- socket.io
 - Web RTC
-- peer.js
+- peer.js (wrap WebRTC)
 
 # To-do's:
 
