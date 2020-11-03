@@ -1,0 +1,29 @@
+{
+  "name": "teleconference-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abrielequdsi/Teleconference-App.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abrielequdsi/Teleconference-App/issues"
+  },
+  "homepage": "https://github.com/abrielequdsi/Teleconference-App#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "peer": "^0.5.3",
+    "peerjs": "^1.3.1",
+    "socket.io": "^2.3.0",
+    "uuid": "^8.3.1"
+  }
+}

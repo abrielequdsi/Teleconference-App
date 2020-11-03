@@ -1,7 +1,14 @@
-### To-do's:
+# Use:
+
+- Express
+- UUID
+- Web RTC
+- peer.js
+
+# To-do's:
 
 - Initialize NodeJs Project
-- Initialize frontend view
+- Initialize frontend view (using ejs)
 - Create a room id
 - Add the ability to view our own Video
 - Add the ability to allow others to stream their video
@@ -9,7 +16,5 @@
 - Add the ability to cerate messages
 - Add mute button
 - Add stop Video Button
-
-Express , UUID , Web RTC ,peer.js
 
 3:07:12
