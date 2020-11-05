@@ -13,7 +13,7 @@ let myVideoStream;
 
 navigator.mediaDevices.getUserMedia({
     video: true,
-    audio: false,
+    audio: true,
 }).then(stream => {
     myVideoStream = stream;
     addVideoStream(myVideo, stream); 
@@ -34,18 +34,27 @@ navigator.mediaDevices.getUserMedia({
     // Take Input Value
     let text = $("input");
     // When press enter, send message
+    
     $('html').keydown(function (e) {
         if (e.which == 13 && text.val().length !== 0) {
             socket.emit('message', text.val());
             text.val('')
             }
     });
-
     // Send to socket.io
     socket.on("createMessage", message => {
-        $("ul").append(`<li class="message"><b>user</b><br/>${message}</li>`);
+       
+        $(".messages").append(` <li class="message">
+            <img src="https://i1.wp.com/mainstsolar.com/wp-content/uploads/2016/08/avatar-placeholder-generic.png?fit=300%2C300" class="right">
+            <div class='content'>
+             <b>User</b>
+             <p>${message}</p>
+            </div>
+        </li>
+`   );
         scrollToBottom()
     })
+
 
 })
 
@@ -79,13 +88,13 @@ const addVideoStream = (video, stream) => {
 
 
 
-
+// Scrolling Issue
 const scrollToBottom = () => {
   var d = $('.main__chat_window');
   d.scrollTop(d.prop("scrollHeight"));
 }
 
-
+// Mute button
 const muteUnmute = () => {
   const enabled = myVideoStream.getAudioTracks()[0].enabled;
   if (enabled) {
@@ -97,6 +106,7 @@ const muteUnmute = () => {
   }
 }
 
+// Video button
 const playStop = () => {
   console.log('object')
   let enabled = myVideoStream.getVideoTracks()[0].enabled;
@@ -109,34 +119,38 @@ const playStop = () => {
   }
 }
 
+// Mute Button UI
 const setMuteButton = () => {
   const html = `
-    <i class="fas fa-microphone"></i>
-    <span>Mute</span>
+    <i class="fas fa-microphone" style="padding: 0 4px;"></i>
+   
   `
   document.querySelector('.main__mute_button').innerHTML = html;
 }
 
+// Mute Button UI
 const setUnmuteButton = () => {
   const html = `
-    <i class="unmute fas fa-microphone-slash"></i>
-    <span>Unmute</span>
+    <i class="unmute fas fa-microphone-slash" style="padding: 0 4px;"></i>
+ 
   `
   document.querySelector('.main__mute_button').innerHTML = html;
 }
 
+// Video Button UI
 const setStopVideo = () => {
   const html = `
     <i class="fas fa-video"></i>
-    <span>Stop Video</span>
+ 
   `
   document.querySelector('.main__video_button').innerHTML = html;
 }
 
+// Video Button UI
 const setPlayVideo = () => {
   const html = `
   <i class="stop fas fa-video-slash"></i>
-    <span>Play Video</span>
+ 
   `
   document.querySelector('.main__video_button').innerHTML = html;
 }
