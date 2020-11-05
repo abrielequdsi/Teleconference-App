@@ -1,10 +1,6 @@
-body {
-  margin: 0;
-  padding: 0;
-}
-
 video {
   border-radius: 20px;
+  margin: 10px;
 }
 
 #video-grid {
@@ -25,7 +21,7 @@ video {
 }
 
 .main__left {
-  flex: 0.8;
+  flex: 1;
   display: flex;
   flex-direction: column;
 }
@@ -40,7 +36,7 @@ video {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px;
+  padding: 85px 0 0 0;
 }
 
 .main__controls {
@@ -76,6 +72,43 @@ video {
   margin: 0 21px 40px;
 }
 
+@media screen and (max-width: 500px) {
+  video {
+    height: 200px !important;
+    width: 300px !important;
+  }
+
+  .main__controls__button {
+    margin: 0 10px 17px !important;
+    zoom: 0.75 !important;
+  }
+
+  .main__videos {
+    padding: 0 0;
+  }
+
+  h1.h2 {
+    font-size: 25px;
+  }
+
+  div.btn-toolbar {
+    zoom: 0.65 !important;
+  }
+}
+
+.main__controls__button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 12px;
+  cursor: pointer;
+  background-color: #7b83eb;
+  color: white;
+  border-radius: 100px;
+  margin: 0 21px 40px;
+}
+
 .main__controls__button:hover {
   background-color: #343434;
   border-radius: 100px;
@@ -92,11 +125,16 @@ video {
 
 .main__header {
   background-color: #201f1e;
-  padding-top: 13px;
+  padding-top: 26px;
   padding-left: 21px;
-  padding-bottom: 10px;
+  padding-bottom: 0;
   color: #f3f2f1;
   text-align: left;
+}
+
+.main__header h4 {
+  border-bottom: 1px solid #dee2e6 !important;
+  padding-bottom: 16.5px;
 }
 
 .main__chat_window {
@@ -124,6 +162,11 @@ ul.messages {
   margin-right: 14px;
   margin-top: 5px;
   border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.messages .content p {
+  overflow-wrap: break-word;
 }
 
 .messages b {
@@ -152,4 +195,111 @@ ul.messages {
 .unmute,
 .stop {
   color: #cc3b33;
+}
+
+/*------------------------*/
+
+body {
+  font-size: 0.875rem;
+  background-color: #11100f;
+  margin: 0;
+  padding: 0;
+}
+
+.feather {
+  width: 16px;
+  height: 16px;
+  vertical-align: text-bottom;
+}
+
+/*
+ * Sidebar
+ */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 100; /* Behind the navbar */
+  padding: 0;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px; /* Height of navbar */
+  height: calc(100vh);
+
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+.sidebar .nav-link {
+  font-weight: 500;
+  color: #333;
+}
+
+.sidebar .nav-link .feather {
+  margin-right: 4px;
+  color: #999;
+}
+
+.sidebar .nav-link.active {
+  color: #007bff;
+}
+
+.sidebar .nav-link:hover .feather,
+.sidebar .nav-link.active .feather {
+  color: inherit;
+}
+
+.sidebar-heading {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+/*
+ * Navbar
+ */
+
+.flex-column {
+  height: 100%;
+}
+
+.navbar-brand {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  font-size: 1rem;
+  background-color: rgba(0, 0, 0, 0.25);
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.25);
+}
+
+.navbar .form-control {
+  padding: 0.75rem 1rem;
+  border-width: 0;
+  border-radius: 0;
+}
+
+.form-control-dark {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.form-control-dark:focus {
+  border-color: transparent;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25);
+}
+
+/*
+ * Utilities
+ */
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
 }
